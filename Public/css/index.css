@@ -1,0 +1,71 @@
+.navbar{
+			margin-bottom:0px;
+		}
+		.contarner{
+			width:80%;
+			margin:10px auto;
+		}
+		form{
+			min-height:70px;
+			max-height: 200px;
+			background:rgba(254,254,254,0.35);
+			line-height: 65px;
+			font-size:16px;
+			overflow: auto;
+		}
+		.main{
+			position: relative;
+			margin:0px auto;
+		}
+		#formmain{
+			position: absolute;
+			top:0%;
+			left:10%;
+			width:80%;
+			margin:10px auto;
+			z-index: 100;
+			
+			
+		}
+		#zhuying{
+			min-height: 170px;
+		}
+		#about{
+			min-height: 170px;
+		}
+		#news .panel-body{
+			border-bottom:2px solid rgb(245,245,245);
+
+		}
+		#footer{
+			background:rgb(34,34,34);
+			padding:20px;
+			color:#FFF;
+		}
+		#footer a{
+			margin:0px 10px;
+			color:#FFF;
+			
+		}
+		.jumbotron{
+			padding:20px;
+		}
+		pre{
+			background:none;
+			border:none;
+			padding:none;
+			margin:none;
+
+
+			white-space:pre-wrap;
+
+			white-space:-moz-pre-wrap;
+
+			white-space:-pre-wrap;
+
+			white-space:-o-pre-wrap;
+
+			word-wrap:break-word;
+
+			
+		}

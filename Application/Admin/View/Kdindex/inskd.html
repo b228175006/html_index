@@ -1,0 +1,189 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+    
+    <title>网站后台管理</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="__Css__/Admin/dashboard.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+    .form-group{
+      margin:10px 5px;
+    }
+    </style>
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+      <!--     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button> -->
+          <a class="navbar-brand" href="{:U('/Admin/Index/index')}">后台管理</a>
+        </div>
+      <!--   <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Settings</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Help</a></li>
+          </ul>
+          <form class="navbar-form navbar-right">
+            <input type="text" class="form-control" placeholder="Search...">
+          </form>
+        </div> -->
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <include file="Public/menu" />
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <h1>修改快递</h1>
+              <div class="panel panel-info">
+                <!-- Default panel contents -->
+                <div class="panel-heading">
+                   <p>修改快递单号</p>
+                   <form action="{:U('Admin/Kdindex/addwuliu')}" method="post" class="form-inline">
+                     <label for="message">物流详情</label>
+                     <input type="text" class="form-control" name="message" id="message" placeholder="物流详情">
+                     <label for="status">物流状态</label>
+                     <select name="status" id="status" class="form-control">
+                       <option value="0">已收件</option>
+                       <option value="1">运送中</option>
+                       <option value="2">派送中</option>
+                       <option value="3">已签收</option>
+                     </select>
+                     <input type="hidden" name="num" value="{$num.0.num}">
+                     <input type="hidden" name="nid" value="{$num.0.id}">
+                     <input type="submit" value="添加" class="btn btn-success">
+                   </form>
+                </div>
+                <div class="panel-body">
+                  <form action="{:U('Admin/Kdindex/inskdpost')}" method="post" class="form-inline">
+                  <div class="form-group" id="kdgs">
+                    <label for="kdgs">快递公司</label>
+                    <select name="kdgs" class="form-control">
+                      <option value="dhl">DHL</option>
+                      <option value="ups">UPS</option>
+                      <option value="fedexcn">FedEx</option>
+                      <option value="tnt">TNT</option>
+                    </select>
+                  </div>
+                  <div class="form-group" id="num">
+                    <label for="num">快递单号</label>
+                    <input type="text" name="num" class="form-control" value="{$num.0.num}">
+                  </div>
+                  <br>
+                  <div class="form-group">
+                    <label for="fuser">发件人</label>
+                    <input type="text" name="fuser" id="fuser" class="form-control" value="{$num.0.fuser}">
+                  </div>
+                  <div class="form-group">
+                    <label for="fadd">发件地址</label>
+                    <input type="text" name="fadd" id="fadd" class="form-control" value="{$num.0.fadd}">
+                  </div>
+                  <div class="form-group">
+                    <label for="ftel">发件电话</label>
+                    <input type="text" name="ftel" id="ftel" class="form-control" value="{$num.0.ftel}">
+                  </div>
+                  <br>
+                  <div class="form-group">
+                    <label for="suser">收件人</label>
+                    <input type="text" name="suser" id="suser" class="form-control" value="{$num.0.suser}">
+                  </div>
+                  <div class="form-group">
+                    <label for="sadd">收件地址</label>
+                    <input type="text" name="sadd" id="sadd" class="form-control" value="{$num.0.sadd}">
+                  </div>
+                  <div class="form-group">
+                    <label for="stel">收件电话</label>
+                    <input type="text" name="stel" id="stel" class="form-control" value="{$num.0.stel}">
+                  </div>
+                </div>
+                <div class="panel-footer">
+                   <div class="form-group">
+                    <input type="hidden" name="id" value="{$num.0.id}">
+                    <input type="submit" value="修改" class="btn btn-success">
+                  </div>
+                </div>
+                </form>
+              </div>
+          <div class="panel panel-success">
+            <div class="panel-heading">
+              <p>物流信息</p>
+            </div>
+            <div class="panel-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>信息</th>
+                    <th>状态</th>
+                    <th>时间</th>
+                    <th>操作</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <foreach name="wuliu" item="v">
+                    <tr>
+                      <td>{$v.message}</td>
+                      <td>
+                        <switch name="v.status">
+                          <case value="0">已收件</case>
+                          <case value="1">运送中</case>
+                          <case value="2">派送中</case>
+                          <case value="3">已签收</case>
+                          <default />未知
+                        </switch>
+                      </td>
+                      <td>{$v.time|date="Y-m-d h:i",###}</td>
+                      <td>
+                        <a href="{:U('Admin/Kdindex/delwuliu',array('id'=>$v['id'],'page'=>$num['0']['id'],'num'=>$num['0']['num']))}" class="btn btn-danger">删除</a>
+                      </td>
+                    </tr>
+                  </foreach>
+                </tbody>
+              </table>
+            </div>
+          </div>  
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="../../assets/js/vendor/holder.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>

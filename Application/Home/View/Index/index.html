@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>{$lianxi.0.gongsi}</title>
+	<meta name="description" content="{$keyword.0.description}"> 
+	<meta name="keyword" content="{$keyword.0.keyword}"> 
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="__Css__/index.css">
+	
+  </head>
+  <body>	
+  	<include file="Public/menu" />
+  			 	<!-- 轮播图 -->
+  			 	<div class="main">
+  			 		 	
+					<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+					  <div class="carousel-inner" role="listbox">
+					    <div class="item active">
+					      <img src="__Image__/bg1.jpg" alt="...">
+					      <div class="carousel-caption">
+					      <h1>{$lianxi.0.gongsi}</h1>
+					      </div>
+					    </div>
+					  </div>
+					</div>
+					<div class="text-center" id="formmain">
+				 			<form class="form-inline" method="post" action="{:U('/Home/Index/kdpost')}">
+				 			  <div class="form-group">
+				 			  <label for="kdgs">请选择快递公司：</label>
+				 			    <select name="com" id="com" class="form-control">
+				 			    	<option value="0">选择快递公司</option>
+				 			    	<option value="dhl">DHL</option>
+				 			    	<option value="ups">UPS</option>
+				 			    	<option value="fedexcn">FedEx</option>
+				 			    	<option value="tnt">TNT</option>
+				 			    </select>
+				 			  </div>
+				 			  <div class="form-group">
+				 			    <label for="kdnum">运单号：</label>
+				 			    <input type="text" class="form-control" id="kdnum" name="nu" placeholder="运单号">
+				 			  </div>
+				 			  <input type="submit" class="btn btn-default" value="查询">
+				 			  <!-- <button type="remove" class="btn btn-default">重置</button> -->
+				 			</form>
+				 		</div>
+				</div>
+				<!-- 轮播图结束 -->
+ 	<div class="contarner">
+		<div class="row">
+			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" id="zhuying">
+				<!-- 主营业务 -->
+				<div class="panel panel-default">
+				  <div class="panel-heading">
+				    <h3 class="panel-title"><!-- 主营业务 -->{$yewu.0.title}</h3>
+				  </div>
+				  <div class="panel-body">
+				  <!-- <dl>
+				  	<dt>
+				  		快递
+				  	</dt>
+				  	<dt>海运</dt>
+				  	<dd>海运地区</dd>
+				  	<dd>台湾、日本、新加坡、俄罗斯</dd>
+				  </dl> -->
+				  <pre>{$yewu.0.main}</pre>
+				  </div>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8" id="about">
+				<!-- 公司介绍 -->
+				<div class="panel panel-default">
+				  <div class="panel-heading">
+				    <h3 class="panel-title"><!-- 关于我们 -->{$about.0.title}</h3>
+				  </div>
+				  <div class="panel-body">
+				 <!--    成都文扬国际货运有限公司成立于2008年，公司经营国际快递、空运、海运综合运输服务企业。代理DHL、UPS、FedEx、TNT的最低折扣。公司优势：台湾、日本、韩国、新加坡、马来西亚、迪拜专线。公司以客户为尊，量身设计运输方案，为企业节约时间和成本，诚信经营，服务周到。 
+					当天取件，当天上网。价格实惠，方便快捷。可走大小货、粉末、液体、食品、电池、化妆品等等均可出口。只有你想不到的，没有我们做不到的，欢迎询价！  -->
+					<pre>{$about.0.main}</pre>
+				  </div>
+				</div>
+			</div>
+		</div>
+ 		<div class="row">
+ 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+ 				<!-- 新闻中心 -->
+				<div class="panel panel-default" id="news">
+				  <div class="panel-heading">
+				    <h3 class="panel-title">新闻中心</h3>
+				  </div>
+				  <foreach name="news" item="n">
+					  <div class="panel-body">
+					    <a href="{:U('/Home/Index/news',array('id'=>$n['id']))}">{$n.title}</a>					  
+					  </div>
+				  </foreach>
+				  {$page}
+				  <!-- <div class="panel-body">
+				    Panel content
+				  </div>
+				  <div class="panel-body">
+				    Panel content
+				  </div>
+				<div class="panel-body">
+				  Panel content
+				</div> -->
+				</div>
+ 			</div>
+ 		</div>
+
+
+ 	</div>
+  	<include file="Public/footer" />
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  </body>
+</html>

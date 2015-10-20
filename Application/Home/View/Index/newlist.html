@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>关于我们</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="__Css__/index.css">
+    <style>
+		#footer{
+			position:absolute;
+			bottom:0px;
+			width:100%;
+		}
+    </style>
+  </head>
+  <body>
+ 	<include file="Public/menu" />
+ 	<div class="contarner">
+ 			<div class="row">
+ 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+ 				<!-- 新闻中心 -->
+				<div class="panel panel-default" id="news">
+				  <div class="panel-heading">
+				    <h3 class="panel-title">新闻中心</h3>
+				  </div>
+				  <foreach name="news" item="n">
+					  <div class="panel-body">
+					    <a href="{:U('/Home/Index/news',array('id'=>$n['id']))}">{$n.title}</a>					  
+					  </div>
+				  </foreach>
+				  <!-- <div class="panel-body">
+				    Panel content
+				  </div>
+				  <div class="panel-body">
+				    Panel content
+				  </div>
+				<div class="panel-body">
+				  Panel content
+				</div> -->
+				{$page}
+				</div>
+ 			</div>
+ 		</div>
+ 	</div>			
+ 	<include file="Public/footer" />
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  </body>
+</html>
